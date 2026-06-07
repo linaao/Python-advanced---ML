@@ -21,5 +21,10 @@ while True:
         for i, session in enumerate(sessions, start=1):
             print(f"Session {i}: {session[0]} for {session[1]} minutes, on ")
 
+    elif option == 3:
+        print("You are Exiting the main menu !")
+        break
+    
+
 
 
