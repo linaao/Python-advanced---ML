@@ -17,10 +17,11 @@ def session_Add():
     }
     sessions.append(new_sessions)
     print("New study session was added successfully!")
-    print("Would you like to go back to the menu?")
-    menu()
+
+
+
+def option():
     option  = int(input("Choose a option: "))
-    main()
 
 
 
@@ -28,22 +29,28 @@ def sessions_show():
     if len(sessions) == 0:
         print("You still have not added any new session today!")
     else:
+        print("Here is the list of all your saved sessions:  ")
         for i, session in enumerate(sessions, start=1):
             print("Here is the list of all your saved sessions:  ")
             print(f"Session {i}: {session['subject']} for {session['duration']} minutes, on {session['date']}")
 
 
 def main():
-    menu()
+    while True:
+        menu()
+        option()
 
-    option  = int(input("Choose a option: "))
 
-    if option == 1:
-        session_Add()
-    elif option == 2:
-        sessions_show()
-    elif option == 3:
-        print("You are exiting now!")
+        if option == 1:
+            session_Add()
+        elif option == 2:
+            sessions_show()
+        elif option == 3:
+            print("You are exiting now!")
+            break
+        else:
+            print("You entered an invalid option, please choose again: ")
+    
         
 
 main()
