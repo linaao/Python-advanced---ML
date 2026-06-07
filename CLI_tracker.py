@@ -30,7 +30,7 @@ def sessions_show():
     else:
         for i, session in enumerate(sessions, start=1):
             print("Here is the list of all your saved sessions:  ")
-            print(f"Session {i}: {subject} for {duration} minutes, on {date}")
+            print(f"Session {i}: {session['subject']} for {session['duration']} minutes, on {session['date']}")
 
 
 def main():
