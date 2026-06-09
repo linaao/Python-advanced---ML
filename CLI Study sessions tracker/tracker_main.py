@@ -1,4 +1,22 @@
-sessions = []
+import json
+
+def load_sessions():
+    #Tries to load data from the JSON file. If it doesn't exist, returns an empty list
+        try:
+            with open('sessions.json', 'r') as file:
+                return json.load(file)
+        except FileNotFoundError:
+            return []
+
+
+def save_sessions():
+    # Saves the current sessions list into the JSON file
+        with open('sessions.json' ,'w') as file:
+            json.dump(sessions,file)
+
+
+
+sessions = load_sessions()
 
 def menu():
     print("\n ........... Study Tracker ...........")
