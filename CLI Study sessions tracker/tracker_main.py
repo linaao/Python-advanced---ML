@@ -34,6 +34,7 @@ def session_Add():
         "date": date
     }
     sessions.append(new_sessions)
+    save_sessions()
     print("New study session was added successfully!")
 
 
@@ -49,7 +50,11 @@ def sessions_show():
 def main():
     while True:
         menu()
-        option  = int(input("Choose a option: "))
+        try:
+            option  = int(input("Choose a option: "))
+        except ValueError:
+            print("You entered a wrong data types for option, enter an integer...")
+            continue
 
         if option == 1:
             session_Add()
@@ -58,8 +63,6 @@ def main():
         elif option == 3:
             print("You are exiting now!")
             break
-        else:
-            print("You entered an invalid option, please choose again: ")
-           
-
+        
+        
 main()
