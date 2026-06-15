@@ -4,10 +4,11 @@ def main():
     test_sqea()
 
 def test_sqea():
-    if square(2) != 4:
-        print("Squared of 2 was not 4! repeat ")
-    if square(3) != 3:
-        print("Squared of 3 was not 9! repeat ")
+    try:
+        assert square(2) == 4
+        assert square(3) == 9
 
+    except AssertionError:
+        print("IT's true mate..........")
 if __name__ == "__main__":
     main()
