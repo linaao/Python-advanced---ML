@@ -37,8 +37,17 @@
 
 
 
+# with open("students.csv", 'r') as file:
+#     for line in file:
+#         name, house = line.strip().split(",")
+#         print(f"{name} is in {house}")
+
+students = []
+
 with open("students.csv", 'r') as file:
     for line in file:
-        row = line.strip().split(",")
-        print(f"{row[0]} is in {row[1]}")
+        name,house = line.rstrip().split(",")
+        students.append(f"{name.strip()} is in {house.strip()}")
 
+for student in sorted(students, key=str.lower , reverse=True):
+    print(student)
