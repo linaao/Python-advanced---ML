@@ -26,11 +26,19 @@
 #     print(f"HEllo to {name}")
 
 # 3rd method to write the code is as follows, while removing the list names 
-names = []
-with open ("names.txt", 'r') as file:
-    for line in sorted(file, reverse=True):
-        names.append(line.strip())
-    print(names)
+# names = []
+# with open ("names.txt", 'r') as file:
+#     for line in sorted(file, reverse=True):
+#         names.append(line.strip())
+#     print(names)
 
-for name in names[2:4]:
-    print(f"Hello to, {name}")
+# for name in names[2:4]:
+#     print(f"Hello to, {name}")
+
+
+
+with open("students.csv", 'r') as file:
+    for line in file:
+        row = line.strip().split(",")
+        print(f"{row[0]} is in {row[1]}")
+
