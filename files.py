@@ -3,8 +3,8 @@
 # with open("names.txt" , 'a') as file:
 # file.write(f"{name}\n")
 
-names = []
-with open("names.txt" , 'r') as file:
+# names = []
+# with open("names.txt" , 'r') as file:
     #  lines = file.readlines()
 
 # 1st method to remove the ectra new lines after reading the txt file ! -----
@@ -19,8 +19,18 @@ with open("names.txt" , 'r') as file:
 
 # ----------------------------------------
 # to sort them out using names = [] now:
-    for line in file:
-        names.append(line.rstrip())
+#     for line in file:
+#         names.append(line.rstrip())
 
-for name in sorted(names):
-    print(f"HEllo to {name}")
+# for name in sorted(names):
+#     print(f"HEllo to {name}")
+
+# 3rd method to write the code is as follows, while removing the list names 
+names = []
+with open ("names.txt", 'r') as file:
+    for line in sorted(file, reverse=True):
+        names.append(line.strip())
+    print(names)
+
+for name in names[2:4]:
+    print(f"Hello to, {name}")
