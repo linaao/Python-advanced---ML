@@ -41,16 +41,20 @@
 #     for line in file:
 #         name, house = line.strip().split(",")
 #         print(f"{name} is in {house}")
+import csv
 
 students = []
 
 with open("students.csv", 'r') as file:
-    for line in file:
-        name, house = line.rstrip().split(",")
-        student = {"name" : name,
-                   "house" : house}
-        students.append(student)
+    reader = csv.reader(file)
+    for row in reader:
+        students.append({"name" : row[0],
+                         "home" : row[1]})
+    # we can also use two variables one instead of rows:
+    # for name, home in reader:
+    #     students.append({"name" : name,
+    #                      "home" : home})
         
 
 for student in sorted(students , key=lambda student: student["name"] ):
-    print(f"{student ['name']} is in {student ['house']}  ")
+    print(f"{student ['name']} is from {student ['home']}  ")
