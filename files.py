@@ -46,10 +46,10 @@ import csv
 students = []
 
 with open("students.csv", 'r') as file:
-    reader = csv.reader(file)
+    reader = csv.DictReader(file)
     for row in reader:
-        students.append({"name" : row[0],
-                         "home" : row[1]})
+        students.append({"name" : row["name"],
+                         "home" : row["home"]})
     # we can also use two variables one instead of rows:
     # for name, home in reader:
     #     students.append({"name" : name,
